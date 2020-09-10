@@ -1,0 +1,29 @@
+class Point:
+    """"This class lets you create instances of points in an 3D environment.
+        It also lets you calculate the distance between them and the origin or each other."""
+
+    def __init__(self, x, y, z):  # To initialize the object
+        self.x = x
+        self.y = y
+        self.z = z
+        self.coordinates = [self.x, self.y, self.z]
+
+    def distance_origin(self):  # To find the distance from A to point (0, 0, 0)
+        return (self.x ** 2 + self.y ** 2 + self.z ** 2) ** 0.5
+
+    def distance_two_points(self, other):  # To find the distance from A to B
+        return ((other.x - self.x) ** 2 + (other.y - self.y) ** 2 + (other.z - self.z) ** 2) ** 0.5
+
+    def distance_other_point(self, x2=0, y2=0, z2=0):  # Same as above, but you can enter coordinates as parameters
+        return ((x2 - self.x) ** 2 + (y2 - self.y) ** 2 + (z2 - self.z) ** 2) ** 0.5
+
+
+"""For example, here are two points and some distances you can calculate"""
+A = Point(9, 1, 1)
+B = Point(0, 10, 0)
+
+print("A :", A.coordinates)
+print("B :", B.coordinates)
+print("Distance from A to origin =", A.distance_origin())
+print("Distance between A and B =", A.distance_two_points(B))
+print("Distance between A and some other point =", A.distance_other_point(5, 6, 2))
